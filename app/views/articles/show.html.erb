@@ -1,0 +1,15 @@
+<h2>Article <%= @article.title %></h2>
+<p><%= @article.text %></p>
+<div><%= link_to 'Edit', edit_article_path(@article) %></div>
+<hr />
+<div>
+<h3>Comments</h3>
+<% @article.comments.each do |comment| %>
+	<p><i><%= comment.name %></i></p>
+	<p><%= comment.body %></p>
+	<hr />
+<% end %>
+</div>
+<div class="form">
+
+</div>

@@ -1,0 +1,6 @@
+<h2>Edit article</h2>
+<%= form_for @article, method: :put do |f|%>
+  <%= f.text_field :title %>
+  <%= f.text_area :text %>
+    <%= f.button 'Save' %>
+<% end %>
