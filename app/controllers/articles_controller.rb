@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:create, :edit, :new]
 
   def new
+    @username = user_signed_in? ? current_user.username : NilClass.class
     @article = Article.new
   end
 
@@ -42,6 +43,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :author)
   end
 end
